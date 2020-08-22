@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LocalSewa</string>
+    <string name="localsewa">LocalSewa</string>
+    <string name="seeall">See All</string>
+    <string name="shope_by_category">Shope By Category</string>
+    <string name="bestseller">BestSeller</string>
+</resources>
