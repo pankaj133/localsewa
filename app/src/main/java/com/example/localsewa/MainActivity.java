@@ -102,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
         bestSeller_recyclerview.setLayoutManager(new GridLayoutManager(this,2));
         bestSeller_recyclerview.setHasFixedSize(true);
 
+
         bestSellerAdapter = new BestSellerAdapter(this);
         bestSeller_recyclerview.setAdapter(bestSellerAdapter);
         getallbestSellers();

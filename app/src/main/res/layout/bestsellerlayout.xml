@@ -27,13 +27,42 @@
                 android:background="@android:color/transparent"
                 android:orientation="vertical">
 
-                <ImageView
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:orientation="vertical"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/circular"
+                        android:elevation="10dp">
+
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true"
+                            android:background="@drawable/emptyheart"
+                            android:layout_margin="5dp"
+                            android:elevation="10dp">
+
+                        </ImageView>
+
+                    </LinearLayout>
+
+
+                    <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:layout_margin="15dp"
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
                     android:src="@drawable/b"></ImageView>
+
+
+                </RelativeLayout>
 
                 <ImageView
                     android:layout_width="match_parent"
