@@ -4,9 +4,19 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.1"
 
-    dataBinding {
-        enabled = true
+
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
     }
+
+  /*  dataBinding {
+        enabled = true
+
+    }*/
+   /* viewBinding {
+        enabled=true
+    }*/
     defaultConfig {
         applicationId "com.example.localsewa"
         minSdkVersion 21

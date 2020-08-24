@@ -49,8 +49,8 @@
                     android:layout_gravity="center"
                     android:textSize="13sp"
                     android:textColor="@color/black"
-                    android:fontFamily="sans-serif-light"
-                    android:textStyle="bold"
+                    android:fontFamily="sans-serif"
+
                     />
 
             </LinearLayout>

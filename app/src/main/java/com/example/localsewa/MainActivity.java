@@ -22,7 +22,10 @@ import com.example.localsewa.adapters.BestSellerAdapter;
 import com.example.localsewa.adapters.CategoryAdapter;
 import com.example.localsewa.adapters.ViewPagerAdapter;
 import com.example.localsewa.databinding.ActivityMainBinding;
+import com.example.localsewa.databinding.LoadingLayoutBinding;
+import com.example.localsewa.databinding.NoInternetLayoutBinding;
 import com.example.localsewa.models.Message;
+import com.example.localsewa.utiles.ConnectionCheckup;
 import com.example.localsewa.viewmodels.MainViewHolder;
 
 import java.util.List;
@@ -41,17 +44,17 @@ public class MainActivity extends AppCompatActivity {
     private int CURRENT_PAGE = 0;
     // viewpager variables end
 
-
     //category variables start
     private MainViewHolder mainViewHolder;
     private RecyclerView cat_recyclerView;
     private CategoryAdapter customAdapter;
     // category variables end
 
-
     private RecyclerView bestSeller_recyclerview;
-
     private BestSellerAdapter bestSellerAdapter;
+
+    private NoInternetLayoutBinding noInternetLayoutBinding;
+    private LoadingLayoutBinding loadingLayoutBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,13 +68,19 @@ public class MainActivity extends AppCompatActivity {
         // toolbar setup end
 
 
+        activityMainBinding.nointernet.tryagain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getallbestSellers();
+                getcategory();
+            }
+        });
+
         //viepager method call
         viewpagersetup();
 
-
         //viewmodel
         mainViewHolder = ViewModelProviders.of(this).get(MainViewHolder.class);
-
 
         //category recyclerview
         activityMainBinding.seeall.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
@@ -87,52 +96,52 @@ public class MainActivity extends AppCompatActivity {
         activityMainBinding.seeall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,SeeAllCategoryActivity.class);
+                Intent intent = new Intent(MainActivity.this, SeeAllCategoryActivity.class);
                 startActivity(intent);
 
             }
         });
-
         // category end
 
 
         // bestSeller start
-
         bestSeller_recyclerview = activityMainBinding.bestsellerrecyclerview;
-        bestSeller_recyclerview.setLayoutManager(new GridLayoutManager(this,2));
+        bestSeller_recyclerview.setLayoutManager(new GridLayoutManager(this, 2));
         bestSeller_recyclerview.setHasFixedSize(true);
-
 
         bestSellerAdapter = new BestSellerAdapter(this);
         bestSeller_recyclerview.setAdapter(bestSellerAdapter);
         getallbestSellers();
 
-
-
-
+        checkinternet();
 
     }
 
-    private void getallbestSellers() {
 
+    private void getallbestSellers() {
+        checkinternet();
         mainViewHolder.getAllbestSeller().observe(this, new Observer<List<com.example.localsewa.models.bestsellermodels.Msg>>() {
             @Override
             public void onChanged(List<com.example.localsewa.models.bestsellermodels.Msg> msgs) {
                 bestSellerAdapter.bestsller(msgs);
+                activityMainBinding.loadinglayout.loading.setVisibility(View.GONE);
+                activityMainBinding.contentMain.setVisibility(View.VISIBLE);
             }
         });
     }
 
 
     private void getcategory() {
+        checkinternet();
         mainViewHolder.getAllcategory().observe(this, new Observer<List<Message>>() {
             @Override
             public void onChanged(List<Message> msgs) {
                 customAdapter.data(msgs);
+                activityMainBinding.loadinglayout.loading.setVisibility(View.GONE);
+                activityMainBinding.contentMain.setVisibility(View.VISIBLE);
             }
         });
     }
-
 
 
     //viewpagersetup method
@@ -199,6 +208,20 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+
+    public void checkinternet() {
+        if (!ConnectionCheckup.check(this)) {
+            activityMainBinding.contentMain.setVisibility(View.GONE);
+            activityMainBinding.nointernet.notNet.setVisibility(View.VISIBLE);
+            return;
+        } else {
+            activityMainBinding.nointernet.notNet.setVisibility(View.GONE);
+            activityMainBinding.loadinglayout.loading.setVisibility(View.VISIBLE);
+            activityMainBinding.contentMain.setVisibility(View.GONE);
+        }
+
     }
 
 

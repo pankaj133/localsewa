@@ -10,7 +10,6 @@
 
     </data>
 
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,55 +19,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
                 android:orientation="vertical">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <LinearLayout
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:orientation="vertical"
-                        android:layout_margin="4dp"
-                        android:background="@drawable/circular"
-                        android:elevation="10dp">
-
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:layout_alignParentTop="true"
-                            android:background="@drawable/emptyheart"
-                            android:layout_margin="5dp"
-                            android:elevation="10dp">
-
-                        </ImageView>
-
-                    </LinearLayout>
-
-
                     <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:layout_margin="15dp"
+                    android:layout_margin="10dp"
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
                     android:src="@drawable/b"></ImageView>
-
-
-                </RelativeLayout>
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="4dp"
                     android:src="@drawable/dash" />
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -85,7 +53,7 @@
                         android:padding="2dp"
                         android:text="@{best.restaurant.name}"
                         android:textColor="@color/black"
-                        android:textSize="10sp"
+                        android:textSize="11sp"
                         android:textStyle="normal" />
 
                     <TextView
@@ -94,7 +62,7 @@
                         android:layout_gravity="center"
                         android:text="@{best.restaurant.speciality}"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="8sp"
+                        android:textSize="10sp"
                         android:textStyle="italic" />
 
 
@@ -116,38 +84,31 @@
                     android:layout_marginTop="5dp"
                     android:gravity="center">
 
-
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
                         android:src="@drawable/ic_baseline_location_on_24"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:maxLength="4"
-                        android:layout_marginLeft="2dp"
+                        android:layout_marginStart="2dp"
                         android:textSize="10sp"
                         android:text="@{best.get0().distance}"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:textSize="10sp"
-                        android:layout_marginLeft="2dp"
+                        android:layout_marginStart="2dp"
                         android:layout_height="wrap_content"
                         android:text="Km Away"/>
 
-
                 </LinearLayout>
-
-
 
             </LinearLayout>
 
-
-
         </androidx.cardview.widget.CardView>
-
 
     </FrameLayout>
 
