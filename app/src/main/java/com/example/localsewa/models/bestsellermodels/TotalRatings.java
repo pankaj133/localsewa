@@ -7,10 +7,9 @@ import com.google.gson.annotations.SerializedName;
 public class TotalRatings {
 
     @SerializedName("avg")
-    @Expose
     private String avg;
+
     @SerializedName("totalRatings")
-    @Expose
     private String totalRatings;
 
     public String getAvg() {

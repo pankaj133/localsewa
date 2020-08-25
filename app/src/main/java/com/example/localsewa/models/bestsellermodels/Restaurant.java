@@ -1,8 +1,16 @@
 
 package com.example.localsewa.models.bestsellermodels;
 
+import android.widget.ImageView;
+
+import androidx.databinding.BindingAdapter;
+
+import com.example.localsewa.R;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.squareup.picasso.Picasso;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Restaurant {
 

@@ -1,6 +1,8 @@
 
 package com.example.localsewa.models.bestsellermodels;
 
+import android.widget.ImageView;
+
 import androidx.databinding.BindingAdapter;
 
 import java.util.List;
@@ -137,10 +139,11 @@ public class Msg {
     }
 
 
-    @BindingAdapter({"bind:image_url"})
-    public static void loadImage(CircleImageView imageView, String url)
+    @BindingAdapter({"android:src"})
+    public static void setImageViewResource(ImageView imageView, String url)
     {
-        Picasso.with(imageView.getContext()).load(url).placeholder(R.drawable.d).into(imageView);
+        Picasso.with(imageView.getContext()).load(url).placeholder(R.drawable.a).into(imageView);
     }
+
 
 }

@@ -14,7 +14,6 @@ import retrofit2.Response;
 
 public class CategoryRepository {
 
-
     private List<Message> msgList = new ArrayList<>();
     private MutableLiveData<List<Message>> mutableLiveData  = new MutableLiveData<>();
 
@@ -29,18 +28,14 @@ public class CategoryRepository {
         Comman.getApi().getAllCategory().enqueue(new Callback<Category>() {
             @Override
             public void onResponse(Call<Category> call, Response<Category> response) {
-
                 if(!response.isSuccessful()){
                     Toast.makeText(context, ""+response.message(), Toast.LENGTH_SHORT).show();
                 }
                 msgList =  response.body().getMsgList();
                 mutableLiveData.setValue(msgList);
-
             }
-
             @Override
             public void onFailure(Call<Category> call, Throwable t) {
-
                 Toast.makeText(context, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

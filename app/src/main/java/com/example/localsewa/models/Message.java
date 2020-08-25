@@ -1,6 +1,12 @@
 package com.example.localsewa.models;
 
+
+import androidx.databinding.BindingAdapter;
+import com.example.localsewa.R;
 import com.google.gson.annotations.SerializedName;
+import com.squareup.picasso.Picasso;
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class Message {
 
 
@@ -49,6 +55,10 @@ public class Message {
         this.image = image;
     }
 
-
+    @BindingAdapter({"bind:image_url"})
+    public static void loadImage(CircleImageView imageView, String url)
+    {
+        Picasso.with(imageView.getContext()).load(url).placeholder(R.drawable.d).into(imageView);
+    }
 
 }

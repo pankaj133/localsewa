@@ -22,11 +22,10 @@ import com.example.localsewa.adapters.BestSellerAdapter;
 import com.example.localsewa.adapters.CategoryAdapter;
 import com.example.localsewa.adapters.ViewPagerAdapter;
 import com.example.localsewa.databinding.ActivityMainBinding;
-import com.example.localsewa.databinding.LoadingLayoutBinding;
-import com.example.localsewa.databinding.NoInternetLayoutBinding;
 import com.example.localsewa.models.Message;
 import com.example.localsewa.utiles.ConnectionCheckup;
 import com.example.localsewa.viewmodels.MainViewHolder;
+import com.example.localsewa.views.SearchActivity;
 
 import java.util.List;
 import java.util.Timer;
@@ -43,30 +42,23 @@ public class MainActivity extends AppCompatActivity {
     private Timer timer;
     private int CURRENT_PAGE = 0;
     // viewpager variables end
-
     //category variables start
     private MainViewHolder mainViewHolder;
     private RecyclerView cat_recyclerView;
     private CategoryAdapter customAdapter;
     // category variables end
-
     private RecyclerView bestSeller_recyclerview;
     private BestSellerAdapter bestSellerAdapter;
-
-    private NoInternetLayoutBinding noInternetLayoutBinding;
-    private LoadingLayoutBinding loadingLayoutBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-
         // toolbar setup start
-        activityMainBinding.toolbar.setTitle("");
-        setSupportActionBar(activityMainBinding.toolbar);
+        activityMainBinding.toolbarmain.toolbar.setTitle("");
+        setSupportActionBar(activityMainBinding.toolbarmain.toolbar);
         // toolbar setup end
-
 
         activityMainBinding.nointernet.tryagain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 getcategory();
             }
         });
+
 
         //viepager method call
         viewpagersetup();
@@ -115,7 +108,17 @@ public class MainActivity extends AppCompatActivity {
 
         checkinternet();
 
+
+        activityMainBinding.toolbarmain.searchimageview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this , SearchActivity.class);
+                startActivity(intent);
+            }
+        });
     }
+
+
 
 
     private void getallbestSellers() {
@@ -142,7 +145,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 
     //viewpagersetup method
     private void viewpagersetup() {
@@ -209,7 +211,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 
     public void checkinternet() {
         if (!ConnectionCheckup.check(this)) {

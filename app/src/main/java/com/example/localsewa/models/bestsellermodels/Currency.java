@@ -7,19 +7,19 @@ import com.google.gson.annotations.SerializedName;
 public class Currency {
 
     @SerializedName("id")
-    @Expose
     private String id;
+
     @SerializedName("country")
-    @Expose
     private String country;
+
     @SerializedName("currency")
-    @Expose
     private String currency;
+
     @SerializedName("code")
-    @Expose
+
     private String code;
     @SerializedName("symbol")
-    @Expose
+
     private String symbol;
 
     public String getId() {

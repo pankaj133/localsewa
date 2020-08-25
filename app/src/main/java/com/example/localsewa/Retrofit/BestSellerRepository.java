@@ -46,7 +46,7 @@ public class BestSellerRepository {
 
             @Override
             public void onFailure(Call<BestSeller> call, Throwable t) {
-
+                Toast.makeText(context, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     return mutablebestseller;

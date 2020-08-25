@@ -7,13 +7,12 @@ import com.google.gson.annotations.SerializedName;
 public class User {
 
     @SerializedName("id")
-    @Expose
     private String id;
+
     @SerializedName("email")
-    @Expose
     private String email;
+
     @SerializedName("active")
-    @Expose
     private String active;
 
     public String getId() {

@@ -8,6 +8,10 @@
             name="best"
             type="com.example.localsewa.models.bestsellermodels.Msg" />
 
+        <variable
+            name="main"
+            type="com.example.localsewa.MainActivity" />
+
     </data>
 
     <FrameLayout
@@ -22,16 +26,50 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@android:color/transparent"
                 android:orientation="vertical">
 
-                    <ImageView
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_margin="10dp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/b"></ImageView>
+                    android:layout_height="wrap_content">
+
+
+                    <LinearLayout
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/circle"
+                        android:elevation="10dp"
+                        android:orientation="vertical">
+
+
+                        <ImageView
+                            android:id="@+id/imageaction"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/heart"
+                            android:elevation="10dp">
+
+                        </ImageView>
+
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:id="@+id/bestsellerimage"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="-1dp"
+                        android:layout_marginTop="0dp"
+                        android:padding="10dp"
+                        android:scaleType="fitXY"
+                        android:src="@{best.restaurant.image}"></ImageView>
+
+                </RelativeLayout>
+
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -76,7 +114,6 @@
                     android:layout_marginTop="3dp"
                     android:numStars="5" />
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -102,13 +139,15 @@
                         android:textSize="10sp"
                         android:layout_marginStart="2dp"
                         android:layout_height="wrap_content"
-                        android:text="Km Away"/>
+                        android:text="@string/km_away"/>
 
                 </LinearLayout>
+
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+
 
     </FrameLayout>
 

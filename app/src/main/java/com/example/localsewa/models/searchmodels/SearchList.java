@@ -1,15 +1,14 @@
 
-package com.example.localsewa.models.bestsellermodels;
+package com.example.localsewa.models.searchmodels;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class BestSeller {
+public class SearchList {
 
-    private Integer code;
+
     @SerializedName("msg")
-
     private List<Msg> msg = null;
 
     public List<Msg> getMsg() {

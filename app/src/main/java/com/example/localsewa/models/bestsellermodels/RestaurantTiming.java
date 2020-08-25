@@ -7,19 +7,18 @@ import com.google.gson.annotations.SerializedName;
 public class RestaurantTiming {
 
     @SerializedName("id")
-    @Expose
     private String id;
+
     @SerializedName("day")
-    @Expose
     private String day;
+
     @SerializedName("opening_time")
-    @Expose
     private String openingTime;
+
     @SerializedName("closing_time")
-    @Expose
     private String closingTime;
+
     @SerializedName("restaurant_id")
-    @Expose
     private String restaurantId;
 
     public String getId() {
