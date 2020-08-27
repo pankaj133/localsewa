@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.localsewa.models.searchmodels.Msg;
 import com.example.localsewa.models.searchmodels.SearchList;
+import com.example.localsewa.viewmodels.SearchViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,7 @@ public class SearchRepository {
     public SearchRepository(Context context) {
         this.context = context;
     }
+
 
     public  MutableLiveData<List<Msg>> getallserachitems(String item){
 

@@ -1,8 +1,14 @@
 
 package com.example.localsewa.models.searchmodels;
 
+import android.widget.ImageView;
+
+import androidx.databinding.BindingAdapter;
+
+import com.example.localsewa.R;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.squareup.picasso.Picasso;
 
 public class Msg {
 
@@ -237,5 +243,14 @@ public class Msg {
     public void setPrice(String price) {
         this.price = price;
     }
+
+    @BindingAdapter("android:src")
+    public static void setImageViewResource(ImageView imageViewResource ,String url){
+
+        Picasso.with(imageViewResource.getContext()).load(
+                "http://67.225.220.215/mobileapp_api/"+url).placeholder(R.drawable.a).into(imageViewResource);
+
+    }
+
 
 }

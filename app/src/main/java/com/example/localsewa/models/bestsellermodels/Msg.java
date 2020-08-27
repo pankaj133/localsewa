@@ -142,7 +142,7 @@ public class Msg {
     @BindingAdapter({"android:src"})
     public static void setImageViewResource(ImageView imageView, String url)
     {
-        Picasso.with(imageView.getContext()).load(url).placeholder(R.drawable.a).into(imageView);
+        Picasso.with(imageView.getContext()).load("http://67.225.220.215/mobileapp_api/"+url).placeholder(R.drawable.a).into(imageView);
     }
 
 

@@ -141,7 +141,7 @@ public class Restaurant {
     }
 
     public String getSpeciality() {
-        return speciality;
+        return "("+speciality+")";
     }
 
     public void setSpeciality(String speciality) {

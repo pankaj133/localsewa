@@ -5,6 +5,7 @@ import com.example.localsewa.models.bestsellermodels.BestSeller;
 import com.example.localsewa.models.searchmodels.SearchList;
 
 import java.util.HashMap;
+import java.util.Observable;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -20,7 +21,7 @@ public interface Api {
     @POST("mobileapp_api/api/showPromotedList")
     Call<BestSeller> getAllbestSeller(@Body HashMap<String,String> abc);
 
-    @POST("search_api.php?")
+    @GET("search_api.php")
     Call<SearchList> getallsearchitems(@Query("id") String abc);
 
 

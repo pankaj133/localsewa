@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
+
         <variable
             name="viewModel"
             type="com.example.localsewa.MainActivity" />
 
     </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,7 +18,7 @@
 
         <include
             android:id="@+id/toolbarmain"
-            layout="@layout/toolbar"/>
+            layout="@layout/toolbar" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -30,189 +33,188 @@
                 layout="@layout/loading_layout"></include>
 
 
-            <ScrollView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scrollbars="none">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <RelativeLayout
-                    android:id="@+id/content_main"
+                <androidx.core.widget.NestedScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:fillViewport="false"
+                    android:overScrollMode="never"
+                    android:scrollbarSize="25sp"
+                    android:scrollbars="none">
 
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cardview"
-                        android:layout_width="match_parent"
-                        android:layout_height="240dp"
-                        android:layout_marginTop="2dp"
-                        android:background="@color/colorAccent"
-                        android:elevation="20dp"
-                        android:padding="2dp">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-
-                            <androidx.viewpager.widget.ViewPager
-                                android:id="@+id/viewpagerid"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent" />
-
-
-                            <LinearLayout
-                                android:id="@+id/dotslayout"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentBottom="true"
-                                android:layout_marginBottom="10dp"
-                                android:gravity="center_horizontal"
-                                android:orientation="horizontal" />
-
-                        </RelativeLayout>
-                    </androidx.cardview.widget.CardView>
 
                     <RelativeLayout
-                        android:id="@+id/textrelativelayout"
+                        android:id="@+id/content_main"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/cardview"
-                        android:layout_margin="9dp">
+                        android:layout_height="wrap_content">
 
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardview"
+                            android:layout_width="match_parent"
+                            android:layout_height="240dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/colorAccent"
+                            android:elevation="20dp"
+                            android:padding="2dp">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+
+                                <androidx.viewpager.widget.ViewPager
+                                    android:id="@+id/viewpagerid"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" />
+
+
+                                <LinearLayout
+                                    android:id="@+id/dotslayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginBottom="10dp"
+                                    android:gravity="center_horizontal"
+                                    android:orientation="horizontal" />
+
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <RelativeLayout
+                            android:id="@+id/textrelativelayout"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif"
-                            android:text="@string/shope_by_category"
-                            android:textColor="@color/black"
-                            android:textSize="17sp"
-                            android:textStyle="bold" />
+                            android:layout_below="@+id/cardview"
+                            android:layout_margin="9dp">
 
-                        <TextView
-                            android:id="@+id/seeall"
-                            android:layout_width="wrap_content"
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif"
+                                android:text="@string/shope_by_category"
+                                android:textColor="@color/black"
+                                android:textSize="17sp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/seeall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:fontFamily="sans-serif"
+                                android:text="@string/seeall"
+                                android:textColor="#0040ff"
+                                android:textSize="17sp"
+                                android:textStyle="normal" />
+
+
+                        </RelativeLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/categoryrecyclerview"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:fontFamily="sans-serif"
-                            android:text="@string/seeall"
-                            android:textColor="#0040ff"
-                            android:textSize="17sp"
-                            android:textStyle="bold" />
+                            android:layout_below="@id/textrelativelayout"
+                            android:layout_margin="9dp"
+                            android:orientation="horizontal" />
 
 
-                    </RelativeLayout>
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/categoryrecyclerview"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/textrelativelayout"
-                        android:layout_margin="9dp"
-                        android:orientation="horizontal" />
-
-
-                    <ImageView
-                        android:id="@+id/banner"
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
-                        android:layout_below="@+id/categoryrecyclerview"
-                        android:layout_marginLeft="9dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginRight="9dp"
-                        android:src="@drawable/ban" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/banner"
-                        android:layout_marginTop="25dp"
-                        android:orientation="vertical">
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/banner"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:layout_below="@+id/categoryrecyclerview"
+                            android:layout_marginLeft="9dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginRight="9dp"
+                            android:src="@drawable/ban" />
 
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:elevation="10dp"
-                            app:cardBackgroundColor="@color/black"
+                            android:layout_below="@id/banner"
+                            android:layout_marginTop="25dp"
+                            android:elevation="5dp"
                             app:cardCornerRadius="25dp"
+                            android:backgroundTint="@color/colorPrimary"
                             app:cardPreventCornerOverlap="true">
 
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:layout_width="fill_parent"
-                                android:layout_height="fill_parent"
-                                android:scaleType="centerCrop"
-                                app:srcCompat="@drawable/lower">
-
-                            </androidx.appcompat.widget.AppCompatImageView>
 
 
-                            <LinearLayout
+
+                            <ImageView
+                                android:src="@drawable/lower"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:adjustViewBounds="true"/>
+
+                            <RelativeLayout
+                                android:id="@+id/layout"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="25dp"
-                                android:orientation="vertical">
+                                android:layout_margin="20dp">
 
+                                <TextView
+                                    android:id="@+id/bestseller"
+                                    style="@style/TextAppearance.AppCompat.Body1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif"
+                                    android:padding="5sp"
+                                    android:text="@string/bestseller"
+                                    android:textColor="@color/green"
+                                    android:textSize="20sp" />
 
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content">
+                                <TextView
+                                    android:id="@+id/best"
+                                    style="@style/TextAppearance.AppCompat.Body2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="sans-serif"
+                                    android:padding="5dp"
+                                    android:text="@string/seeall"
+                                    android:textColor="@color/green"
+                                    android:textSize="15sp"></TextView>
 
-                                    <TextView
-                                        android:id="@+id/bestseller"
-                                        style="@style/TextAppearance.AppCompat.Body1"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:fontFamily="sans-serif"
-                                        android:padding="5sp"
-                                        android:text="@string/bestseller"
-                                        android:textColor="@color/green"
-                                        android:textSize="20sp" />
-
-                                    <TextView
-                                        style="@style/TextAppearance.AppCompat.Body2"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_alignParentEnd="true"
-                                        android:fontFamily="sans-serif"
-                                        android:padding="5dp"
-                                        android:text="@string/seeall"
-                                        android:textColor="@color/green"
-                                        android:textSize="15sp"></TextView>
-
-                                </RelativeLayout>
 
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:layout_below="@+id/best"
                                     android:layout_marginTop="10dp"
                                     android:background="@drawable/loweroutline">
 
                                     <androidx.recyclerview.widget.RecyclerView
                                         android:id="@+id/bestsellerrecyclerview"
                                         android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
+                                        android:layout_height="match_parent"
                                         android:padding="2dp" />
 
 
                                 </RelativeLayout>
 
-                            </LinearLayout>
+
+                            </RelativeLayout>
+
 
                         </androidx.cardview.widget.CardView>
 
 
-                    </LinearLayout>
+                    </RelativeLayout>
+                </androidx.core.widget.NestedScrollView>
 
-
-                </RelativeLayout>
-
-
-            </ScrollView>
-
+            </LinearLayout>
 
         </RelativeLayout>
-
 
     </LinearLayout>
 
