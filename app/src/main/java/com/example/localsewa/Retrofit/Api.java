@@ -25,4 +25,8 @@ public interface Api {
     Call<SearchList> getallsearchitems(@Query("id") String abc);
 
 
+    @POST("mobileapp_api/api/showRestaurantsNew")
+    Call<BestSeller> getallShopes(@Body HashMap<String,String> abc);
+
+
 }

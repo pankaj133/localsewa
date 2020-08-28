@@ -160,7 +160,7 @@
                                 android:id="@+id/layout"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="20dp">
+                                android:layout_margin="18dp">
 
                                 <TextView
                                     android:id="@+id/bestseller"
@@ -174,7 +174,7 @@
                                     android:textSize="20sp" />
 
                                 <TextView
-                                    android:id="@+id/best"
+                                    android:id="@+id/allbest"
                                     style="@style/TextAppearance.AppCompat.Body2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -189,7 +189,7 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_below="@+id/best"
+                                    android:layout_below="@+id/allbest"
                                     android:layout_marginTop="10dp"
                                     android:background="@drawable/loweroutline">
 

@@ -14,7 +14,6 @@ import java.util.List;
 public class SearchViewModel extends AndroidViewModel {
 
 
-
     private SearchRepository searchRepository;
     public SearchViewModel(@NonNull Application application) {
         super(application);

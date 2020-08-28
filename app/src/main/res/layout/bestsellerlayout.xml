@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/tools"
     xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -66,7 +67,7 @@
                         android:layout_marginTop="0dp"
                         android:padding="10dp"
                         android:scaleType="fitXY"
-                        android:src="@{best.restaurant.image}"></ImageView>
+                        android:src="@{best.restaurant.coverImage}"></ImageView>
 
                 </RelativeLayout>
 
@@ -76,23 +77,22 @@
                     android:layout_height="4dp"
                     android:src="@drawable/dash" />
 
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
+
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:fontFamily="sans-serif"
-                        android:padding="2dp"
                         android:text="@{best.restaurant.name}"
                         android:textColor="@color/black"
-                        android:textSize="11sp"
-                        android:textStyle="normal" />
+                        android:textSize="10sp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -100,11 +100,13 @@
                         android:layout_gravity="center"
                         android:text="@{best.restaurant.speciality}"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="10sp"
+                        style="@style/TextAppearance.AppCompat.Body2"
+                        android:textSize="8sp"
                         android:textStyle="italic" />
 
 
                 </LinearLayout>
+
 
                 <androidx.appcompat.widget.AppCompatRatingBar
                     style="@style/Widget.AppCompat.RatingBar.Small"
@@ -117,29 +119,29 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_marginTop="5dp"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="12dp"
                         android:layout_height="12dp"
-                        android:src="@drawable/ic_baseline_location_on_24"/>
+                        android:src="@drawable/ic_baseline_location_on_24" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
                         android:maxLength="4"
-                        android:layout_marginStart="2dp"
-                        android:textSize="10sp"
-                        android:text="@{best.get0().distance}"/>
+                        android:text="@{best.get0().distance}"
+                        android:textSize="10sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:textSize="10sp"
-                        android:layout_marginStart="2dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/km_away"/>
+                        android:layout_marginStart="2dp"
+                        android:text="@string/km_away"
+                        android:textSize="10sp" />
 
                 </LinearLayout>
 

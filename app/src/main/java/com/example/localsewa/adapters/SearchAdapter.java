@@ -15,7 +15,7 @@ import java.util.List;
 
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchHolder> {
 
-    private List<Msg> msgLiveData;
+    public List<Msg> msgLiveData = new ArrayList<>();
     private Context context;
 
     public SearchAdapter(Context context) {
@@ -24,15 +24,12 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchHold
 
     public void data(List<Msg> msgLiveData) {
         this.msgLiveData = msgLiveData;
-        notifyDataSetChanged();
-    }
+        notifyDataSetChanged(); }
     @NonNull
     @Override
     public SearchHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         CustomSearchItemBinding custom = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.custom_search_item, parent, false);
-        return new SearchHolder(custom);
-    }
-
+        return new SearchHolder(custom); }
     @Override
     public void onBindViewHolder(@NonNull SearchHolder holder, int position) {
         Msg msg = msgLiveData.get(position);
@@ -41,7 +38,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchHold
     @Override
     public int getItemCount() {
         if(msgLiveData == null){
-            return 0; }
+            return 0;
+        }
         else {
             return msgLiveData.size(); } }
     public class SearchHolder extends RecyclerView.ViewHolder {

@@ -5,8 +5,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-    
-
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="true"
@@ -16,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".views.SearchActivity"></activity>
+        <activity android:name=".views.AllShops"></activity>
+        <activity android:name=".views.SearchActivity" />
         <activity android:name=".SeeAllCategoryActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

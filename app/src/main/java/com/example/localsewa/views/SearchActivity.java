@@ -2,17 +2,15 @@ package com.example.localsewa.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.View;
 import android.widget.Toast;
 
 import com.example.localsewa.R;
@@ -30,21 +28,10 @@ public class SearchActivity extends AppCompatActivity {
     private RecyclerView searchrecyclerView;
     private SearchViewModel searchViewModel;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activitySearchBinding = DataBindingUtil.setContentView(this, R.layout.activity_search);
-
-
-
-/*
-        SearchView searchView =
-                (SearchView) menu.findItem(R.id.search).getActionView();
-        searchView.setIconified(false);*/
-
-
-
 
 
         //viewmodel
@@ -57,38 +44,61 @@ public class SearchActivity extends AppCompatActivity {
         searchrecyclerView.setHasFixedSize(true);
         searchrecyclerView.setAdapter(searchAdapter);
 
+        //this is opening keybord when user coming from the main activity
+        activitySearchBinding.searchview.requestFocus();
 
-
-
-
-       /* activitySearchBinding.searchview.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        activitySearchBinding.searchview.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
+            public boolean onQueryTextChange(String newText) {
+                searchAdapter.msgLiveData.clear();
+                if(newText.isEmpty()){
+                    searchAdapter.data(null);
+                }
+                searchAdapter.data(null);
+                filter(newText);
                 return false;
             }
 
             @Override
-            public boolean onQueryTextChange(String newText) {
-                if(newText.length() <= 0) {
-                    searchAdapter.data(null);
-                }
-                else{
-                    searchViewModel.getsearcheddata(newText).observe(SearchActivity.this, new Observer<List<Msg>>() {
-                        @Override
-                        public void onChanged(List<Msg> msgs) {
-                            searchAdapter.data(msgs);
-                        }
-                    });
-                }
-
-                return true;
+            public boolean onQueryTextSubmit(String query) {
+                return false;
             }
-
-
         });
-    }*/
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void filter(final String item) {
+        searchViewModel.getsearcheddata(item).observe(this, new Observer<List<Msg>>() {
+            @Override
+            public void onChanged(List<Msg> msgs) {
+            searchAdapter.data(msgs);
+            }
+        });
+    }
+
+
 
 }
 
-
-}

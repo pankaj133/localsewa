@@ -29,6 +29,7 @@ import com.example.localsewa.databinding.ActivityMainBinding;
 import com.example.localsewa.models.Message;
 import com.example.localsewa.utiles.ConnectionCheckup;
 import com.example.localsewa.viewmodels.MainViewHolder;
+import com.example.localsewa.views.AllShops;
 import com.example.localsewa.views.SearchActivity;
 
 import java.util.List;
@@ -112,6 +113,14 @@ public class MainActivity extends AppCompatActivity {
         getallbestSellers();
 
         checkinternet();
+
+        activityMainBinding.allbest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, AllShops.class);
+                startActivity(intent);
+            }
+        });
 
 
         activityMainBinding.toolbarmain.searchimageview.setOnClickListener(new View.OnClickListener() {
