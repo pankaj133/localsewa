@@ -9,6 +9,8 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.localsewa.R;
 import com.example.localsewa.databinding.BestsellerlayoutBinding;
+import com.example.localsewa.databinding.CustomLayoutForAllShowsBinding;
+import com.example.localsewa.databinding.CustomSearchItemBinding;
 import com.example.localsewa.models.bestsellermodels.Msg;
 import java.util.List;
 
@@ -32,11 +34,11 @@ public class AllShopsAdapter extends RecyclerView.Adapter<AllShopsAdapter.AllSho
     @NonNull
     @Override
     public AllShopsAdapter.AllShopsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        BestsellerlayoutBinding bestsellerlayoutBinding
+        CustomLayoutForAllShowsBinding customLayoutForAllShowsBinding
                 = DataBindingUtil.inflate(LayoutInflater.from(context),
-                R.layout.bestsellerlayout,parent,false);
+                R.layout.custom_layout_for_all_shows,parent,false);
 
-        return new AllShopsHolder(bestsellerlayoutBinding);
+        return new AllShopsHolder(customLayoutForAllShowsBinding);
     }
 
     @Override
@@ -56,8 +58,8 @@ public class AllShopsAdapter extends RecyclerView.Adapter<AllShopsAdapter.AllSho
 
     public class AllShopsHolder extends RecyclerView.ViewHolder {
 
-        BestsellerlayoutBinding bestsellerlayoutBinding;
-        public AllShopsHolder(@NonNull BestsellerlayoutBinding itemView) {
+        CustomLayoutForAllShowsBinding bestsellerlayoutBinding;
+        public AllShopsHolder(@NonNull CustomLayoutForAllShowsBinding itemView) {
             super(itemView.getRoot());
             bestsellerlayoutBinding = itemView;
         }

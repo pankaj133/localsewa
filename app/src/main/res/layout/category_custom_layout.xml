@@ -38,7 +38,7 @@
                     android:padding="7dp"
                     app:civ_border_width="1dp"
                     android:src="@drawable/b"
-                    bind:image_url="@{category.image}"
+                    image_url="@{category.image}"
                     />
 
 

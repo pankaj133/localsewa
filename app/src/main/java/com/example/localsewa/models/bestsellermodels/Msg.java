@@ -139,10 +139,10 @@ public class Msg {
     }
 
 
-    @BindingAdapter({"android:src"})
-    public static void setImageViewResource(ImageView imageView, String url)
+    @BindingAdapter({"android:image"})
+    public static void setImageView(ImageView imageVieww, String url)
     {
-        Picasso.with(imageView.getContext()).load("http://67.225.220.215/mobileapp_api/"+url).placeholder(R.drawable.a).into(imageView);
+        Picasso.with(imageVieww.getContext()).load("http://67.225.220.215/mobileapp_api/"+url).placeholder(R.drawable.a).into(imageVieww);
     }
 
 

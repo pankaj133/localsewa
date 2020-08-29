@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -60,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
+        MainActivity activity = new MainActivity();
+        activityMainBinding.setViewModel(activity);
+
         // toolbar setup start
         activityMainBinding.toolbarmain.toolbar.setTitle("");
         setSupportActionBar(activityMainBinding.toolbarmain.toolbar);
@@ -73,12 +77,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         //viepager method call
         viewpagersetup();
 
         //viewmodel
-        mainViewHolder = ViewModelProviders.of(this).get(MainViewHolder.class);
+        mainViewHolder = new  ViewModelProvider(this).get(MainViewHolder.class);
 
         //category recyclerview
         activityMainBinding.seeall.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
@@ -114,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
         checkinternet();
 
+        //all shpos
         activityMainBinding.allbest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -123,14 +127,20 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        //searchacfvity
         activityMainBinding.toolbarmain.searchimageview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent intent = new Intent(MainActivity.this,SearchActivity.class);
                 startActivity(intent);
             }
         });
+    }
+
+    public void onclickmethod(View view){
+            Intent intentcat = new Intent(MainActivity.this,SeeAllCategoryActivity.class);
+            startActivity(intentcat);
+
     }
     private void getallbestSellers() {
         checkinternet();

@@ -9,13 +9,13 @@ public class SearchList {
 
 
     @SerializedName("msg")
-    private List<Msg> msg = null;
+    private List<SearchMsg> msg = null;
 
-    public List<Msg> getMsg() {
+    public List<SearchMsg> getMsg() {
         return msg;
     }
 
-    public void setMsg(List<Msg> msg) {
+    public void setMsg(List<SearchMsg> msg) {
         this.msg = msg;
     }
 

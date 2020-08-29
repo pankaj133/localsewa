@@ -13,67 +13,66 @@ import com.squareup.picasso.Picasso;
 public class Msg {
 
     @SerializedName("restaurant_id")
-    @Expose
     private String restaurantId;
+
     @SerializedName("restaurant_name")
-    @Expose
     private String restaurantName;
+
     @SerializedName("restaurant_slogan")
-    @Expose
     private String restaurantSlogan;
+
     @SerializedName("restaurant_about")
-    @Expose
     private String restaurantAbout;
+
     @SerializedName("restaurant_fee")
-    @Expose
     private String restaurantFee;
+
     @SerializedName("restaurant_image")
-    @Expose
     private String restaurantImage;
+
     @SerializedName("restaurant_cover")
-    @Expose
     private String restaurantCover;
+
     @SerializedName("restaurant_menu_style")
-    @Expose
     private String restaurantMenuStyle;
+
     @SerializedName("restaurant_phone")
-    @Expose
     private String restaurantPhone;
+
     @SerializedName("restaurant_currency")
-    @Expose
     private String restaurantCurrency;
+
     @SerializedName("restaurant_tax")
-    @Expose
     private String restaurantTax;
+
     @SerializedName("deliveryTime")
-    @Expose
     private String deliveryTime;
+
     @SerializedName("delivery_fee_per_km")
-    @Expose
     private String deliveryFeePerKm;
+
     @SerializedName("min_order_price")
-    @Expose
     private String minOrderPrice;
+
     @SerializedName("preparation_time")
-    @Expose
     private String preparationTime;
+
     @SerializedName("category")
-    @Expose
     private String category;
+
     @SerializedName("item_id")
-    @Expose
     private String itemId;
+
     @SerializedName("item")
-    @Expose
     private String item;
+
     @SerializedName("description")
-    @Expose
     private String description;
+
     @SerializedName("item_image")
-    @Expose
-    private Object itemImage;
+    private String itemImage;
+
     @SerializedName("price")
-    @Expose
     private String price;
 
     public String getRestaurantId() {
@@ -228,12 +227,12 @@ public class Msg {
         this.description = description;
     }
 
-    public Object getItemImage() {
+    public String getItemImage() {
         return itemImage;
     }
 
     public void setItemImage(Object itemImage) {
-        this.itemImage = itemImage;
+        this.itemImage = (String) itemImage;
     }
 
     public String getPrice() {
@@ -244,11 +243,11 @@ public class Msg {
         this.price = price;
     }
 
-    @BindingAdapter("android:src")
-    public static void setImageViewResource(ImageView imageViewResource ,String url){
+    @BindingAdapter("android:searchimage")
+    public static void setImageViewSearch(ImageView imageViewResource ,String url){
 
         Picasso.with(imageViewResource.getContext()).load(
-                "http://67.225.220.215/mobileapp_api/"+url).placeholder(R.drawable.a).into(imageViewResource);
+                "http://67.225.220.215/mobileapp_api/"+url).placeholder(R.drawable.b).into(imageViewResource);
 
     }
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -16,19 +17,21 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="4dp"
-        android:background="@drawable/outlineofbestseller">
+        android:padding="4dp">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
+            android:background="@color/colorAccent"
+
+            android:elevation="10dp"
+            app:cardCornerRadius="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                >
+                android:background="@drawable/outlineallshops">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -66,9 +69,9 @@
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="-1dp"
                         android:layout_marginTop="0dp"
+                        android:image="@{best.restaurant.coverImage}"
                         android:padding="10dp"
-                        android:scaleType="fitXY"
-                        android:image="@{best.restaurant.coverImage}"></ImageView>
+                        android:scaleType="fitXY"></ImageView>
 
                 </RelativeLayout>
 
@@ -90,24 +93,24 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:fontFamily="sans-serif"
                         android:text="@{best.restaurant.name}"
                         android:textColor="@color/black"
-                        android:textSize="10sp"/>
+                        android:textSize="9sp" />
 
                     <TextView
+                        style="@style/TextAppearance.AppCompat.Body2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="@{best.restaurant.speciality}"
                         android:textColor="@color/colorPrimary"
-                        style="@style/TextAppearance.AppCompat.Body2"
                         android:textSize="8sp"
                         android:textStyle="italic" />
 
 
                 </LinearLayout>
-
 
                 <androidx.appcompat.widget.AppCompatRatingBar
                     style="@style/Widget.AppCompat.RatingBar.Small"

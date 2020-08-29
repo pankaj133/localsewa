@@ -1,22 +1,24 @@
+
 package com.example.localsewa.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.localsewa.R;
 import com.example.localsewa.adapters.SearchAdapter;
 import com.example.localsewa.databinding.ActivitySearchBinding;
-import com.example.localsewa.models.searchmodels.Msg;
+import com.example.localsewa.models.searchmodels.SearchMsg;
 import com.example.localsewa.viewmodels.SearchViewModel;
 
 import java.util.List;
@@ -28,14 +30,16 @@ public class SearchActivity extends AppCompatActivity {
     private RecyclerView searchrecyclerView;
     private SearchViewModel searchViewModel;
 
+    private EditText editTextseach;
+    //  private List<Msg> serachedlist = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activitySearchBinding = DataBindingUtil.setContentView(this, R.layout.activity_search);
 
-
         //viewmodel
-        searchViewModel = ViewModelProviders.of(this).get(SearchViewModel.class);
+        searchViewModel = new ViewModelProvider(this).get(SearchViewModel.class);
 
         //recyclerview
         searchrecyclerView = activitySearchBinding.searchrecyclerview;
@@ -44,61 +48,47 @@ public class SearchActivity extends AppCompatActivity {
         searchrecyclerView.setHasFixedSize(true);
         searchrecyclerView.setAdapter(searchAdapter);
 
+
+        editTextseach = activitySearchBinding.searchview;
         //this is opening keybord when user coming from the main activity
-        activitySearchBinding.searchview.requestFocus();
+        editTextseach.requestFocus();
 
-        activitySearchBinding.searchview.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        editTextseach.addTextChangedListener(new TextWatcher() {
             @Override
-            public boolean onQueryTextChange(String newText) {
-                searchAdapter.msgLiveData.clear();
-                if(newText.isEmpty()){
-                    searchAdapter.data(null);
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+                if (editTextseach.getText().toString().trim() != null) {
+
+                    if (editTextseach.getText().toString().trim().length() >= 3) {
+                        String item = editTextseach.getText().toString().trim();
+                        Toast.makeText(SearchActivity.this, "" + item, Toast.LENGTH_SHORT).show();
+                        filter(item);
+                    }
+                } else {
+                    //searchAdapter.data.clear();
+                    searchAdapter.Setdata(null);
                 }
-                searchAdapter.data(null);
-                filter(newText);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
             }
         });
     }
 
+    private void filter(String item) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public void filter(final String item) {
-        searchViewModel.getsearcheddata(item).observe(this, new Observer<List<Msg>>() {
+        searchViewModel.getsearcheddata(item).observe(this, new Observer<List<SearchMsg>>() {
             @Override
-            public void onChanged(List<Msg> msgs) {
-            searchAdapter.data(msgs);
+            public void onChanged(List<SearchMsg> searchMsgs) {
+                searchAdapter.Setdata(searchMsgs);
             }
         });
     }
-
-
-
 }
-

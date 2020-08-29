@@ -3,6 +3,7 @@ package com.example.localsewa;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,7 +34,7 @@ public class SeeAllCategoryActivity extends AppCompatActivity {
         seellrecycelerview.setLayoutManager(new GridLayoutManager(this,3));
 
 
-        mainViewHolder = ViewModelProviders.of(this).get(MainViewHolder.class);
+        mainViewHolder = new ViewModelProvider(this).get(MainViewHolder.class);
         categoryAdapter = new CategoryAdapter(this);
         seellrecycelerview.setAdapter(categoryAdapter);
         getdata();

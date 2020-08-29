@@ -1,13 +1,11 @@
 package com.example.localsewa.viewmodels;
 
 import android.app.Application;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-
 import com.example.localsewa.Retrofit.SearchRepository;
-import com.example.localsewa.models.searchmodels.Msg;
+import com.example.localsewa.models.searchmodels.SearchMsg;
 
 import java.util.List;
 
@@ -20,7 +18,7 @@ public class SearchViewModel extends AndroidViewModel {
         searchRepository = new SearchRepository(application);
     }
 
-    public LiveData<List<Msg>> getsearcheddata(String product){
+    public LiveData<List<SearchMsg>> getsearcheddata(String product){
         return searchRepository.getallserachitems(product);
     }
 }

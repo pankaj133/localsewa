@@ -55,7 +55,7 @@ public class Message {
         this.image = image;
     }
 
-    @BindingAdapter({"bind:image_url"})
+    @BindingAdapter({"image_url"})
     public static void loadImage(CircleImageView imageView, String url)
     {
         Picasso.with(imageView.getContext()).load(url).placeholder(R.drawable.d).into(imageView);
