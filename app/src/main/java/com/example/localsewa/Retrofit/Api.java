@@ -1,12 +1,10 @@
 package com.example.localsewa.Retrofit;
 
 import com.example.localsewa.models.Category;
+import com.example.localsewa.models.shopsbycategorymodels.RasturantListByCategory;
 import com.example.localsewa.models.bestsellermodels.BestSeller;
 import com.example.localsewa.models.searchmodels.SearchList;
-
 import java.util.HashMap;
-import java.util.Observable;
-
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -22,11 +20,15 @@ public interface Api {
     Call<BestSeller> getAllbestSeller(@Body HashMap<String,String> abc);
 
     @GET("search_api.php")
-    Call<SearchList> getallsearchitems(@Query("id") String abc);
+    Call<SearchList> getallsearchitems(@Query("id") String id);
 
 
     @POST("mobileapp_api/api/showRestaurantsNew")
     Call<BestSeller> getallShopes(@Body HashMap<String,String> abc);
+
+    @GET("cat_list.php")
+    Call<RasturantListByCategory> getShopsByCategory(@Query("cat_id") String cat_id
+                           , @Query("city") String city, @Query("area") String area);
 
 
 }

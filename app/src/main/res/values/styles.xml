@@ -24,6 +24,11 @@
         <item name="android:textCursorDrawable">@drawable/cursur</item>
     </style>
 
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">#C0C0C0</item>
+        <item name="colorControlActivated">@color/colorPrimary</item>
+    </style>
+
 
 
 

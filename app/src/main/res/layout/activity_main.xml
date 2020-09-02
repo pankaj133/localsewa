@@ -99,7 +99,7 @@
                                 android:fontFamily="sans-serif"
                                 android:text="@string/shope_by_category"
                                 android:textColor="@color/black"
-                                android:textSize="17sp"
+                                android:textSize="15sp"
                                 android:textStyle="normal" />
 
                             <TextView
@@ -110,7 +110,7 @@
                                 android:fontFamily="sans-serif"
                                 android:text="@string/seeall"
                                 android:textColor="#0040ff"
-                                android:textSize="17sp"
+                                android:textSize="15sp"
                                 android:textStyle="normal" />
 
 

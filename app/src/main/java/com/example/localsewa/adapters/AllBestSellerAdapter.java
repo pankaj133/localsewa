@@ -2,26 +2,23 @@ package com.example.localsewa.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.localsewa.R;
-import com.example.localsewa.databinding.BestsellerlayoutBinding;
 import com.example.localsewa.databinding.CustomLayoutForAllShowsBinding;
-import com.example.localsewa.databinding.CustomSearchItemBinding;
 import com.example.localsewa.models.bestsellermodels.Msg;
 import java.util.List;
 
-public class AllShopsAdapter extends RecyclerView.Adapter<AllShopsAdapter.AllShopsHolder>{
+public class AllBestSellerAdapter extends RecyclerView.Adapter<AllBestSellerAdapter.AllShopsHolder>{
 
 
     private Context context;
-
     private List<Msg> msgs;
 
-    public AllShopsAdapter(Context context) {
+
+    public AllBestSellerAdapter(Context context) {
         this.context = context;
     }
 
@@ -33,7 +30,7 @@ public class AllShopsAdapter extends RecyclerView.Adapter<AllShopsAdapter.AllSho
 
     @NonNull
     @Override
-    public AllShopsAdapter.AllShopsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AllBestSellerAdapter.AllShopsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         CustomLayoutForAllShowsBinding customLayoutForAllShowsBinding
                 = DataBindingUtil.inflate(LayoutInflater.from(context),
                 R.layout.custom_layout_for_all_shows,parent,false);
@@ -42,9 +39,10 @@ public class AllShopsAdapter extends RecyclerView.Adapter<AllShopsAdapter.AllSho
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AllShopsAdapter.AllShopsHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AllBestSellerAdapter.AllShopsHolder holder, int position) {
         Msg msg = msgs.get(position);
         holder.bestsellerlayoutBinding.setBest(msg);
+
     }
 
     @Override

@@ -71,7 +71,7 @@ public class SearchActivity extends AppCompatActivity {
 
                     if (editTextseach.getText().toString().trim().length() >= 3) {
                         String item = editTextseach.getText().toString().trim();
-                        Toast.makeText(SearchActivity.this, "" + item, Toast.LENGTH_SHORT).show();
+                        /*Toast.makeText(SearchActivity.this, "" + item, Toast.LENGTH_SHORT).show();*/
                         filter(item);
                     }
                 } else {

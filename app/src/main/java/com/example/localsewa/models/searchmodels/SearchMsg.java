@@ -41,7 +41,7 @@ public class SearchMsg {
     }
 
     public String getPrice() {
-        return price;
+        return "₹ "+price+"";
     }
 
     public void setPrice(String price) {

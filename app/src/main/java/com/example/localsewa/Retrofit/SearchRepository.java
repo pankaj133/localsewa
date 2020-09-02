@@ -41,7 +41,7 @@ public class SearchRepository {
             @Override
             public void onFailure(Call<SearchList> call, Throwable t) {
 
-                Toast.makeText(context, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Connection Problem!", Toast.LENGTH_SHORT).show();
             }
         });
 

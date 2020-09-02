@@ -1,28 +1,21 @@
 package com.example.localsewa;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
-
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 import com.example.localsewa.adapters.BestSellerAdapter;
 import com.example.localsewa.adapters.CategoryAdapter;
 import com.example.localsewa.adapters.ViewPagerAdapter;
@@ -32,7 +25,6 @@ import com.example.localsewa.utiles.ConnectionCheckup;
 import com.example.localsewa.viewmodels.MainViewHolder;
 import com.example.localsewa.views.AllShops;
 import com.example.localsewa.views.SearchActivity;
-
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;

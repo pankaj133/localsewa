@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.localsewa.adapters.CategoryAdapter;
 import com.example.localsewa.databinding.ActivitySeeAllCategoryBinding;
@@ -28,6 +29,13 @@ public class SeeAllCategoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activitySeeAllCategoryBinding = DataBindingUtil.setContentView(this,R.layout.activity_see_all_category);
+
+        activitySeeAllCategoryBinding.backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         seellrecycelerview = activitySeeAllCategoryBinding.seeallrecyclerview;
         seellrecycelerview.setHasFixedSize(true);

@@ -12,8 +12,8 @@ public class TotalRatings {
     @SerializedName("totalRatings")
     private String totalRatings;
 
-    public String getAvg() {
-        return avg;
+    public float getAvg() {
+        return Float.parseFloat(avg);
     }
 
     public void setAvg(String avg) {

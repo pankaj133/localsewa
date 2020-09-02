@@ -15,8 +15,8 @@
         xmlns:android="http://schemas.android.com/apk/res/android">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             app:cardCornerRadius="10dp"
             android:layout_gravity="center">
 
@@ -24,7 +24,6 @@
                 android:adjustViewBounds="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-
                 android:scaleType="centerCrop"
                 android:searchimage="@{search.itemImage}">
 
@@ -45,6 +44,7 @@
             android:text="@{search.item}"
             android:fontFamily="sans-serif"
             android:padding="1dp"
+            android:maxLines="1"
             style="@style/TextAppearance.AppCompat.Body2"
             ></TextView>
 
@@ -54,7 +54,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="1dp"
+            android:maxLines="1"
             style="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/colorPrimaryDark"
             android:text="@{search.restaurantName}" />
 
             <TextView
@@ -62,6 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="1dp"
+                android:maxLines="1"
                 android:text="@{search.price}"
                 style="@style/TextAppearance.AppCompat.Body1"   />
 
