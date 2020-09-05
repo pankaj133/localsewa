@@ -7,7 +7,7 @@
 
         <variable
             name="allshopes"
-            type="com.example.localsewa.views.AllShops" />
+            type="com.example.localsewa.views.AllShopsSellers" />
 
 
     </data>
@@ -15,7 +15,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".views.AllShops">
+        tools:context=".views.AllShopsSellers">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarallshop"

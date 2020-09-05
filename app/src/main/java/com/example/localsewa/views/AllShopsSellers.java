@@ -17,7 +17,7 @@ import com.example.localsewa.viewmodels.MainViewHolder;
 
 import java.util.List;
 
-public class AllShops extends AppCompatActivity {
+public class AllShopsSellers extends AppCompatActivity {
 
     private ActivityAllShopsBinding activityAllShops;
     private RecyclerView recyclerView;

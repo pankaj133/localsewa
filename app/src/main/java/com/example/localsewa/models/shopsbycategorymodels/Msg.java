@@ -177,8 +177,8 @@ public class Msg {
         this.preparationTime = preparationTime;
     }
 
-    @BindingAdapter({"anroid:image"})
-    public static void setimage(ImageView imageVieww, String url){
+    @BindingAdapter({"android:image"})
+    public static void setImage(ImageView imageVieww, String url){
         Picasso.with(imageVieww.getContext()).load("http://67.225.220.215/mobileapp_api/"+url).placeholder(R.drawable.b).into(imageVieww);
 
     }

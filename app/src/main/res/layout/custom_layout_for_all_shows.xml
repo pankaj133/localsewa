@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    
+
     <data>
+
         <variable
             name="best"
             type="com.example.localsewa.models.bestsellermodels.Msg" />
+
         <variable
             name="main"
             type="com.example.localsewa.MainActivity" />
@@ -17,15 +19,11 @@
         android:layout_height="wrap_content"
         android:padding="4dp">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/outlineallshops"
-            app:cardCornerRadius="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/outlineallshops"
                 android:orientation="vertical">
 
                 <RelativeLayout
@@ -65,7 +63,7 @@
                         android:layout_marginStart="-1dp"
                         android:layout_marginTop="0dp"
                         android:image="@{best.restaurant.coverImage}"
-                        android:padding="5dp"
+                        android:padding="10dp"
                         android:scaleType="fitXY"></ImageView>
 
                 </RelativeLayout>
@@ -113,11 +111,11 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="3dp"
+                    android:max="5"
                     android:numStars="5"
-                    android:stepSize="1"
-                    android:theme="@style/RatingBar"
                     android:rating="@{best.totalRatings.avg}"
-                    android:max="5"/>
+                    android:stepSize="1"
+                    android:theme="@style/RatingBar" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -151,7 +149,7 @@
 
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+        <!--</androidx.cardview.widget.CardView>-->
 
 
     </FrameLayout>
