@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+>
 
     <data>
 
         <variable
             name="signup"
-            type="com.example.localsewa.views.SignUp" />
+            type="com.example.localsewa.viewmodels.SignUpViewModel" />
 
     </data>
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
         tools:context=".views.SignUp">
 
 
@@ -44,14 +42,63 @@
                 android:layout_gravity="center"
                 android:text="SignUp"
                 android:textColor="@color/colorAccent"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
 
         </androidx.appcompat.widget.Toolbar>
 
 
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Phone Number"
+            android:padding="10dp"
+            android:inputType="phone"
+            android:text="@={signup.mnumber}"
+            android:textCursorDrawable="@drawable/cursur"
+            android:background="@drawable/searchviewoutline"
+            app:layout_constraintTop_toBottomOf="@id/signuptoolbar"></androidx.appcompat.widget.AppCompatEditText>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/fname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/searchviewoutline"
+            android:hint="First Name"
+            android:padding="10dp"
+            android:inputType="text"
+            android:text="@={signup.fname}"
+            android:textCursorDrawable="@drawable/cursur"
+            app:layout_constraintTop_toBottomOf="@id/phone" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/lname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Last Name"
+            android:padding="10dp"
+            android:text="@={signup.lname}"
+            android:textCursorDrawable="@drawable/cursur"
+            android:background="@drawable/searchviewoutline"
+            android:inputType="text"
+            app:layout_constraintTop_toBottomOf="@id/fname" />
 
 
+        <Button
+            android:id="@+id/signupbutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:padding="10dp"
+            android:text="SIGN UP"
+            android:onClick="@{() ->signup.onclick()}"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintTop_toBottomOf="@id/lname"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

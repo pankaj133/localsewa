@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Profile"
+                android:text="@string/profile"
                 android:textColor="@color/colorAccent"
                 android:textSize="20sp">
 
@@ -35,28 +35,106 @@
         </androidx.appcompat.widget.Toolbar>
 
 
-        <TextView
-            android:id="@+id/signin"
+
+        <LinearLayout
+            android:foreground="?attr/selectableItemBackground"
+            android:id="@+id/signinlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:foreground="?attr/selectableItemBackground"
-            android:padding="10dp"
-            android:text="SignIn"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@+id/profiletoolbar" />
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/profiletoolbar"
+            android:layout_margin="10dp">
 
 
-        <TextView
-            android:id="@+id/signup"
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/signinimage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_baseline_person_24"
+                android:padding="5dp"/>
+
+
+
+
+            <TextView
+                android:id="@+id/signin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="5dp"
+                android:text="SignIn"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintTop_toBottomOf="@+id/profiletoolbar" />
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+
+            android:id="@+id/signuplayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:foreground="?attr/selectableItemBackground"
-            android:padding="10sp"
-            android:text="SignUp"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            app:layout_constraintTop_toBottomOf="@id/signin" />
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/signinlayout"
+            android:layout_margin="10dp">
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_baseline_people_24"
+                android:padding="5dp"/>
+
+
+
+            <TextView
+                android:id="@+id/signup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="5sp"
+                android:text="SignUp"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintTop_toBottomOf="@id/signin" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/signuplayout"
+            android:layout_margin="10dp">
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_baseline_contact_support_24"
+                android:padding="5dp"/>
+
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="5dp"
+                android:text="Support No +919015077222"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintTop_toBottomOf="@id/signup" />
+        </LinearLayout>
+
+
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

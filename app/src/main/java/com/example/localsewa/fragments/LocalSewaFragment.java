@@ -110,7 +110,7 @@ public class LocalSewaFragment extends Fragment {
 
         //under in sell all
         fragment.seeall.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
-        fragment.bestseller.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
+        fragment.allbestsellers.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
 
 
         //category work

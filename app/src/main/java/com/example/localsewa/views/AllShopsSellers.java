@@ -35,6 +35,8 @@ public class AllShopsSellers extends AppCompatActivity {
         activityAllShops.toolbarallshop.setTitle("");
         setSupportActionBar(activityAllShops.toolbarallshop);
 
+
+
         allShops =new  ViewModelProvider(this).get(MainViewHolder.class);
 
         //recyeclerview

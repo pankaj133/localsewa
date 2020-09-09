@@ -1,12 +1,17 @@
 package com.example.localsewa.Retrofit;
 
 import com.example.localsewa.models.Category;
+import com.example.localsewa.models.account.SignInResponce;
 import com.example.localsewa.models.shopsbycategorymodels.RasturantListByCategory;
 import com.example.localsewa.models.bestsellermodels.BestSeller;
 import com.example.localsewa.models.searchmodels.SearchList;
+import com.example.localsewa.models.account.SignUpResponce;
+
 import java.util.HashMap;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
@@ -29,6 +34,18 @@ public interface Api {
     @GET("cat_list.php")
     Call<RasturantListByCategory> getShopsByCategory(@Query("cat_id") String cat_id
                            , @Query("city") String city, @Query("area") String area);
+
+
+    @POST("signup_otp.php")
+    @FormUrlEncoded
+    Call<SignUpResponce> signup(@Field("mobile") String title,
+                                @Field("firstname") String firstname,
+                                @Field("device_toke") String device_token );
+
+
+    @POST("login_otp.php")
+    @FormUrlEncoded
+    Call<SignInResponce> signin(@Field("mobile") String mnumber);
 
 
 }

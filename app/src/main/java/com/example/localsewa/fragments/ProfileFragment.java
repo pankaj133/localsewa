@@ -33,8 +33,6 @@ public class ProfileFragment extends Fragment {
         profileBinding.profiletoolbar.setTitle("");
         context.setSupportActionBar(profileBinding.profiletoolbar);
 
-
-
         profileBinding.signin.setOnClickListener(view -> {
             Intent intent = new Intent(getActivity(),SignIn.class);
             startActivity(intent);
@@ -43,6 +41,7 @@ public class ProfileFragment extends Fragment {
             Intent intent = new Intent(getActivity(), SignUp.class);
             startActivity(intent);
         });
+
 
 
         return profileBinding.getRoot();
