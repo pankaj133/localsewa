@@ -2,7 +2,6 @@ package com.example.localsewa.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,17 +11,14 @@ import android.os.Bundle;
 import com.example.localsewa.R;
 import com.example.localsewa.adapters.AllBestSellerAdapter;
 import com.example.localsewa.databinding.ActivityAllShopsBinding;
-import com.example.localsewa.models.bestsellermodels.Msg;
-import com.example.localsewa.viewmodels.MainViewHolder;
-
-import java.util.List;
+import com.example.localsewa.viewmodels.MainViewModel;
 
 public class AllShopsSellers extends AppCompatActivity {
 
     private ActivityAllShopsBinding activityAllShops;
     private RecyclerView recyclerView;
 
-    private MainViewHolder allShops;
+    private MainViewModel allShops;
 
     private AllBestSellerAdapter adapter;
 
@@ -36,23 +32,23 @@ public class AllShopsSellers extends AppCompatActivity {
         setSupportActionBar(activityAllShops.toolbarallshop);
 
 
-
-        allShops =new  ViewModelProvider(this).get(MainViewHolder.class);
+        //viewmodel instance of mainviewmodel
+        allShops = new  ViewModelProvider(this).get(MainViewModel.class);
 
         //recyeclerview
-
         adapter = new AllBestSellerAdapter(this);
         recyclerView = activityAllShops.allshoprecycelrview;
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
 
-        allShops.getAllbestSeller().observe(this, new Observer<List<Msg>>() {
-            @Override
-            public void onChanged(List<Msg> msgs) {
-                adapter.bestsller(msgs);
-            }
+        allShops.getAllbestSeller().observe(this,msgs -> {
+
+            adapter.bestsller(msgs);
+
         });
+
+
 
     }
 }

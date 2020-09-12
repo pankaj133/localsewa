@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/profile"
+                android:text="@string/account"
                 android:textColor="@color/colorAccent"
                 android:textSize="20sp">
 
@@ -35,68 +35,107 @@
         </androidx.appcompat.widget.Toolbar>
 
 
-
         <LinearLayout
-            android:foreground="?attr/selectableItemBackground"
-            android:id="@+id/signinlayout"
+            android:id="@+id/accountlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/profiletoolbar"
-            android:layout_margin="10dp">
-
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/signinimage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_baseline_person_24"
-                android:padding="5dp"/>
-
-
-
+            android:background="@color/grey"
+            app:layout_constraintTop_toBottomOf="@id/profiletoolbar">
 
             <TextView
-                android:id="@+id/signin"
+                android:id="@+id/accounttext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:foreground="?attr/selectableItemBackground"
-                android:padding="5dp"
-                android:text="SignIn"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                app:layout_constraintTop_toBottomOf="@+id/profiletoolbar" />
+                android:padding="10dp"
+                android:text="@string/account" />
+        </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/accountinfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/accountlayout">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="pankaj sagar" />
 
 
         </LinearLayout>
 
 
         <LinearLayout
+            android:id="@+id/addressinfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/accountinfo">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Address" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/signinlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:foreground="?attr/selectableItemBackground"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/addressinfo">
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/signinimage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                app:srcCompat="@drawable/ic_outline_person_24" />
+
+
+            <TextView
+                android:id="@+id/signin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:text="@string/signin"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintTop_toBottomOf="@+id/profiletoolbar" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
             android:id="@+id/signuplayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:foreground="?attr/selectableItemBackground"
             android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/signinlayout"
-            android:layout_margin="10dp">
+            app:layout_constraintTop_toBottomOf="@id/signinlayout">
 
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_baseline_people_24"
-                android:padding="5dp"/>
-
+                android:padding="10dp"
+                app:srcCompat="@drawable/ic_outline_people_24" />
 
 
             <TextView
                 android:id="@+id/signup"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:foreground="?attr/selectableItemBackground"
-                android:padding="5sp"
-                android:text="SignUp"
+                android:layout_height="match_parent"
+                android:padding="10sp"
+                android:text="@string/signup"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 app:layout_constraintTop_toBottomOf="@id/signin" />
@@ -105,35 +144,127 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/others"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/grey"
+            app:layout_constraintTop_toBottomOf="@id/signuplayout">
+
+            <TextView
+                android:id="@+id/otherstext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Others" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/numbersupportlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/signuplayout"
-            android:layout_margin="10dp">
+            app:layout_constraintTop_toBottomOf="@id/others">
 
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_baseline_contact_support_24"
-                android:padding="5dp"/>
-
-
+                android:padding="10dp"
+                app:srcCompat="@drawable/ic_outline_contact_support_24" />
 
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:foreground="?attr/selectableItemBackground"
-                android:padding="5dp"
-                android:text="Support No +919015077222"
+                android:padding="10dp"
+                android:text="Support No (919015077222)"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 app:layout_constraintTop_toBottomOf="@id/signup" />
         </LinearLayout>
 
 
+        <LinearLayout
+            android:id="@+id/whatsupportlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/numbersupportlayout">
 
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                app:srcCompat="@drawable/ic_whtasicon" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="10dp"
+                android:text="@string/whatsapp_support"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintTop_toBottomOf="@id/signup" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/termslayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/whatsupportlayout">
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                app:srcCompat="@drawable/ic_outline_info_24" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="10dp"
+                android:text="@string/terms_of_use_privacy_policy"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintTop_toBottomOf="@id/signup" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/logoutlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/termslayout">
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                app:srcCompat="@drawable/ic_logout" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="10dp"
+                android:text="Log Out"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintTop_toBottomOf="@id/signup" />
+        </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

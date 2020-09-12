@@ -64,18 +64,10 @@ public class ShopsByCategory extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(shops);
 
-/*
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
-        dividerItemDecoration.setDrawable(getDrawable(R.drawable.divider));
-        recyclerView.addItemDecoration(dividerItemDecoration);
-*/
 
-        shopsByCategoryViewModel.getbycategoryData(cat_id).observe(this, new Observer<List<Msg>>() {
-            @Override
-            public void onChanged(List<Msg> msgs) {
-                shops.shopsdatabycat(msgs);
-            }
-        });
+    shopsByCategoryViewModel.getbycategoryData(cat_id).observe(this,msgs -> {
+        shops.shopsdatabycat(msgs);
+    });
     }
 
 }

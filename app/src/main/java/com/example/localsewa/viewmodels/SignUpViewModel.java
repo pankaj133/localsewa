@@ -10,6 +10,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.localsewa.Retrofit.SignUpRepo;
+import com.example.localsewa.models.account.SignUpMsg;
 
 
 public class SignUpViewModel extends AndroidViewModel {
@@ -17,6 +18,8 @@ public class SignUpViewModel extends AndroidViewModel {
     public String mnumber;
     public String fname;
     public String lname;
+
+    public String signupotop;
 
 
     private Context context;
@@ -40,6 +43,10 @@ public class SignUpViewModel extends AndroidViewModel {
     public LiveData<String> getsignup(String mnumber,String fname,String code){
 
         return signUpRepo.getsignup(mnumber,fname,code);
+    }
+
+    public LiveData<SignUpMsg> signupverification(String m_number,String otp){
+        return signUpRepo.setSingupverification(m_number,otp);
     }
 
 

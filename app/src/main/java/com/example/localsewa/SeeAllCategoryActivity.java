@@ -2,39 +2,28 @@ package com.example.localsewa;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
-import android.view.View;
-
 import com.example.localsewa.adapters.CategoryAdapter;
 import com.example.localsewa.databinding.ActivitySeeAllCategoryBinding;
-import com.example.localsewa.models.Message;
-import com.example.localsewa.viewmodels.MainViewHolder;
-
-import java.util.List;
+import com.example.localsewa.viewmodels.MainViewModel;
 
 public class SeeAllCategoryActivity extends AppCompatActivity {
 
     private ActivitySeeAllCategoryBinding activitySeeAllCategoryBinding;
     private RecyclerView seellrecycelerview;
     private CategoryAdapter categoryAdapter;
-    private MainViewHolder mainViewHolder;
+    private MainViewModel mainViewHolder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activitySeeAllCategoryBinding = DataBindingUtil.setContentView(this,R.layout.activity_see_all_category);
 
-        activitySeeAllCategoryBinding.backbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
+        activitySeeAllCategoryBinding.backbutton.setOnClickListener(view -> {
+            onBackPressed();
         });
 
         seellrecycelerview = activitySeeAllCategoryBinding.seeallrecyclerview;
@@ -42,7 +31,7 @@ public class SeeAllCategoryActivity extends AppCompatActivity {
         seellrecycelerview.setLayoutManager(new GridLayoutManager(this,3));
 
 
-        mainViewHolder = new ViewModelProvider(this).get(MainViewHolder.class);
+        mainViewHolder = new ViewModelProvider(this).get(MainViewModel.class);
         categoryAdapter = new CategoryAdapter(this);
         seellrecycelerview.setAdapter(categoryAdapter);
         getdata();
@@ -51,11 +40,8 @@ public class SeeAllCategoryActivity extends AppCompatActivity {
 
     private void getdata() {
 
-        mainViewHolder.getAllcategory().observe(this, new Observer<List<Message>>() {
-            @Override
-            public void onChanged(List<Message> msgs) {
-                categoryAdapter.data(msgs);
-            }
+        mainViewHolder.getAllcategory().observe(this, messages -> {
+            categoryAdapter.data(messages);
         });
     }
 }

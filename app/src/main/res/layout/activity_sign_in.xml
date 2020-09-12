@@ -39,9 +39,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="SignIn"
+                android:text="@string/signin"
                 android:textColor="@color/colorAccent"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
 
         </androidx.appcompat.widget.Toolbar>
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/searchviewoutline"
-            android:hint="Mobile"
+            android:hint="@string/mobile"
             android:inputType="number"
             android:text="@={signin.mnumber}"
             android:padding="10dp"
@@ -69,7 +69,7 @@
             android:backgroundTint="@color/colorPrimaryDark"
             android:fontFamily="sans-serif"
             android:padding="10dp"
-            android:text="LOGIN"
+            android:text="@string/login"
             android:onClick="@{() ->signin.onclick}"
             android:textColor="@color/colorAccent"
             app:layout_constraintTop_toBottomOf="@+id/mobile" />
@@ -87,7 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
-                android:text="Don't have an account?"
+                android:text="@string/don_t_have_an_account"
                 android:textColor="@android:color/darker_gray" />
 
 
@@ -97,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:fontFamily="sans-serif"
-                android:text="Sign Up Now"
+                android:text="@string/sign_up_now"
                 android:textColor="@color/colorPrimary"
                 android:textStyle="bold" />
 

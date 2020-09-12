@@ -45,7 +45,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="sans-serif"
-                    android:text="All Category"
+                    android:text="@string/all_category"
                     android:textColor="@color/colorAccent"
                     android:textSize="18sp"
                     android:textStyle="normal" />

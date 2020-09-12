@@ -83,12 +83,16 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     private void filter(String item) {
+        searchViewModel.getsearcheddata(item).observe(this,searchMsgs -> {
+            searchAdapter.Setdata(searchMsgs);
+        });
 
-        searchViewModel.getsearcheddata(item).observe(this, new Observer<List<SearchMsg>>() {
+        /*searchViewModel.getsearcheddata(item).observe(this, new Observer<List<SearchMsg>>() {
             @Override
             public void onChanged(List<SearchMsg> searchMsgs) {
+
                 searchAdapter.Setdata(searchMsgs);
             }
-        });
+        });*/
     }
 }

@@ -2,6 +2,8 @@ package com.example.localsewa.Retrofit;
 
 import com.example.localsewa.models.Category;
 import com.example.localsewa.models.account.SignInResponce;
+import com.example.localsewa.models.account.SignInVerifyResponce;
+import com.example.localsewa.models.account.SignUpVerifyResponce;
 import com.example.localsewa.models.shopsbycategorymodels.RasturantListByCategory;
 import com.example.localsewa.models.bestsellermodels.BestSeller;
 import com.example.localsewa.models.searchmodels.SearchList;
@@ -27,9 +29,8 @@ public interface Api {
     @GET("search_api.php")
     Call<SearchList> getallsearchitems(@Query("id") String id);
 
-
-    @POST("mobileapp_api/api/showRestaurantsNew")
-    Call<BestSeller> getallShopes(@Body HashMap<String,String> abc);
+   /* @POST("mobileapp_api/api/showRestaurantsNew")
+    Call<BestSeller> getallShopes(@Body HashMap<String,String> abc);*/
 
     @GET("cat_list.php")
     Call<RasturantListByCategory> getShopsByCategory(@Query("cat_id") String cat_id
@@ -38,14 +39,29 @@ public interface Api {
 
     @POST("signup_otp.php")
     @FormUrlEncoded
-    Call<SignUpResponce> signup(@Field("mobile") String title,
+    Call<SignUpResponce> signup(@Field("mobile") String number,
                                 @Field("firstname") String firstname,
                                 @Field("device_toke") String device_token );
 
 
+
+    @POST("signup_otp_verify.php")
+    @FormUrlEncoded
+    Call<SignUpVerifyResponce> signupverification(@Field("mobile") String mnumber,
+                                                  @Field("otp") String otp);
+
+
     @POST("login_otp.php")
     @FormUrlEncoded
-    Call<SignInResponce> signin(@Field("mobile") String mnumber);
+    Call<SignInResponce> signin(@Field("mobile") String mnumber,
+                                @Field("device_token") String device_token);
+
+
+    @POST("login_otp_verify.php")
+    @FormUrlEncoded
+    Call<SignInVerifyResponce>  signinverification(@Field("mobile") String mnumber,
+                                                   @Field("otp") String otp);
+
 
 
 }

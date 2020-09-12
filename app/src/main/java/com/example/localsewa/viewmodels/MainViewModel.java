@@ -11,13 +11,13 @@ import com.example.localsewa.models.bestsellermodels.Msg;
 
 import java.util.List;
 
-public class MainViewHolder extends AndroidViewModel {
+public class MainViewModel extends AndroidViewModel {
 
     private CategoryRepository categoryRepository;
     private BestSellerRepository bestSellerRepository;
 
 
-    public MainViewHolder(@NonNull Application application) {
+    public MainViewModel(@NonNull Application application) {
         super(application);
         categoryRepository = new CategoryRepository(application);
         bestSellerRepository = new BestSellerRepository(application);

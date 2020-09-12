@@ -1,42 +1,34 @@
 package com.example.localsewa.fragments;
 
-import android.content.Context;
+
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
-
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 import com.example.localsewa.R;
 import com.example.localsewa.SeeAllCategoryActivity;
 import com.example.localsewa.adapters.BestSellerAdapter;
 import com.example.localsewa.adapters.CategoryAdapter;
 import com.example.localsewa.adapters.ViewPagerAdapter;
 import com.example.localsewa.databinding.FragmentLocalSewaBinding;
-import com.example.localsewa.models.Message;
-import com.example.localsewa.models.bestsellermodels.Msg;
 import com.example.localsewa.utiles.ConnectionCheckup;
-import com.example.localsewa.viewmodels.MainViewHolder;
+import com.example.localsewa.viewmodels.MainViewModel;
 import com.example.localsewa.views.AllShopsSellers;
 import com.example.localsewa.views.SearchActivity;
-
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -60,7 +52,7 @@ public class LocalSewaFragment extends Fragment {
 
     private  AppCompatActivity appCompatActivity;
 
-    private MainViewHolder mainViewHolder;
+    private MainViewModel mainViewHolder;
     private RecyclerView category_recyclerview;
     private CategoryAdapter catAdapter;
 
@@ -78,15 +70,9 @@ public class LocalSewaFragment extends Fragment {
         fragment = DataBindingUtil.inflate(LayoutInflater.from(appCompatActivity),
                 R.layout.fragment_local_sewa, container, false);
 
-        view = fragment.getRoot();
-
-/*
-        //getcontext
-        context = container.getContext();
-*/
 
         //istance
-        mainViewHolder = new ViewModelProvider(this).get(MainViewHolder.class);
+        mainViewHolder = new ViewModelProvider(this).get(MainViewModel.class);
 
         // toolbar setup start
         fragment.tool.toolbar.setTitle("");
@@ -97,16 +83,10 @@ public class LocalSewaFragment extends Fragment {
         //viewpagercall
         viewpagersetup();
 
-
-        fragment.nointernet.tryagain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                getallbestSellers();
-                getcategory();
-            }
+        fragment.nointernet.tryagain.setOnClickListener( view1 -> {
+            getallbestSellers();
+            getcategory();
         });
-
 
         //under in sell all
         fragment.seeall.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
@@ -123,13 +103,10 @@ public class LocalSewaFragment extends Fragment {
         getcategory();
 
 
-        fragment.seeall.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent categortintent  = new Intent(appCompatActivity, SeeAllCategoryActivity.class);
-                startActivity(categortintent);
-            }
-        });
+        fragment.seeall.setOnClickListener(view1 -> {
+            Intent categortintent  = new Intent(appCompatActivity, SeeAllCategoryActivity.class);
+            startActivity(categortintent); });
+
         //category end
 
 
@@ -144,56 +121,46 @@ public class LocalSewaFragment extends Fragment {
 
         getallbestSellers();
 
-        fragment.allbestsellers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent bestsellerintent = new Intent(appCompatActivity, AllShopsSellers.class);
-                startActivity(bestsellerintent);
-            }
+        fragment.allbestsellers.setOnClickListener(view1 -> {
+            Intent bestsellerintent = new Intent(appCompatActivity, AllShopsSellers.class);
+            startActivity(bestsellerintent);
+
         });
 
         //bestseller end
 
 
-       fragment.tool.searchimageview.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               Intent  searchintent = new Intent(appCompatActivity, SearchActivity.class);
-               startActivity(searchintent);
-           }
-       });
+        fragment.tool.searchimageview.setOnClickListener(view1 -> {
+            Intent  searchintent = new Intent(appCompatActivity, SearchActivity.class);
+            startActivity(searchintent);
+        });
+
 
         checkinternet();
 
-        return view; }
+        return fragment.getRoot(); }
 
     //observe bestseller
     private void getallbestSellers() {
         checkinternet();
-        mainViewHolder.getAllbestSeller().observe(appCompatActivity, new Observer<List<Msg>>() {
-            @Override
-            public void onChanged(List<Msg> msgs) {
-                bestSellerAdapter.bestsller(msgs);
-                fragment.loadinglayout.loading.setVisibility(View.GONE);
-                fragment.content.setVisibility(View.VISIBLE);
 
-            }
+        mainViewHolder.getAllbestSeller().observe(appCompatActivity,msgs -> {
+            bestSellerAdapter.bestsller(msgs);
+            fragment.loadinglayout.loading.setVisibility(View.GONE);
+            fragment.content.setVisibility(View.VISIBLE);
+
+
         }); }
 
     //observ category
     private void getcategory(){
         checkinternet();
 
-        mainViewHolder.getAllcategory().observe(appCompatActivity, new Observer<List<Message>>() {
-            @Override
-            public void onChanged(List<Message> messages) {
-                catAdapter.data(messages);
-                fragment.loadinglayout.loading.setVisibility(View.GONE);
-                fragment.content.setVisibility(View.VISIBLE);
+        mainViewHolder.getAllcategory().observe(appCompatActivity,messages -> {
+            catAdapter.data(messages);
+            fragment.loadinglayout.loading.setVisibility(View.GONE);
+            fragment.content.setVisibility(View.VISIBLE); });
 
-
-            }
-        });
     }
 
     //viewpagersetup method
@@ -221,14 +188,12 @@ public class LocalSewaFragment extends Fragment {
 
 
         // this is resposible for automatic change of viewpager images
-        final Runnable update = new Runnable() {
-            @Override
-            public void run() {
-                if (CURRENT_PAGE == dotscount) {
-                    CURRENT_PAGE = 0;
-                }
-                fragment.viewpagerid.setCurrentItem(CURRENT_PAGE++, true);
+        final Runnable update = () -> {
+            if (CURRENT_PAGE == dotscount) {
+                CURRENT_PAGE = 0;
             }
+            fragment.viewpagerid.setCurrentItem(CURRENT_PAGE++, true);
+
         };
 
         timer = new Timer();// it will create the thread
@@ -252,16 +217,13 @@ public class LocalSewaFragment extends Fragment {
                     dots[i].setImageDrawable(ContextCompat.getDrawable(appCompatActivity, R.drawable.slider_not_active_image));
                 }
                 dots[position].setImageDrawable(ContextCompat.getDrawable(appCompatActivity, R.drawable.slider_active_image));
-
             }
-
             @Override
             public void onPageScrollStateChanged(int state) {
 
             }
         });
     }
-
 
     //function for internetcheing
     public void checkinternet() {
@@ -273,8 +235,6 @@ public class LocalSewaFragment extends Fragment {
             fragment.nointernet.notNet.setVisibility(View.GONE);
             fragment.loadinglayout.loading.setVisibility(View.VISIBLE);
             fragment.content.setVisibility(View.GONE);
-        }
-
-    }
+        } }
 
 }

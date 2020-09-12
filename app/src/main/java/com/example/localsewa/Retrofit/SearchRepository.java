@@ -30,13 +30,11 @@ public class SearchRepository {
             public void onResponse(Call<SearchList> call, Response<SearchList> response) {
 
                 if(!response.isSuccessful()){
-
                     Toast.makeText(context, ""+response.message(), Toast.LENGTH_SHORT).show();
                 }
-                searchlist = response.body().getMsg();
-                mutableLiveData.setValue(searchlist);
 
-            }
+                searchlist = response.body().getMsg();
+                mutableLiveData.setValue(searchlist); }
 
             @Override
             public void onFailure(Call<SearchList> call, Throwable t) {

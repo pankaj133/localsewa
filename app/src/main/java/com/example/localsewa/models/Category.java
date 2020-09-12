@@ -7,7 +7,7 @@ import java.util.List;
 public class Category {
 
     @SerializedName("msg")
-   private List<Message> msgList = null;
+    private List<Message> msgList = null;
 
     public List<Message> getMsgList() {
         return msgList;

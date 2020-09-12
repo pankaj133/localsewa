@@ -7,14 +7,19 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Transformations;
 
 import com.example.localsewa.Retrofit.SignInRepo;
+import com.example.localsewa.models.account.SignInMsg;
 import com.example.localsewa.views.SignIn;
 
 public class SignInViewModel extends AndroidViewModel {
 
     public String mnumber;
+    public String signinotp;
+
     private Context context;
+
 
     private SignInRepo msignInRepo;
 
@@ -23,14 +28,17 @@ public class SignInViewModel extends AndroidViewModel {
         context = application;
         msignInRepo = new SignInRepo(application);
     }
+
     public boolean  onclick(){
       return !TextUtils.isEmpty(mnumber) && mnumber.length() == 10;
     }
 
+    public LiveData<String> getsignin(String mobilenumber,String token){
+        return msignInRepo.getsignin(mobilenumber,token);
+    }
 
-
-    public LiveData<String> getsignin(String mobilenumber){
-        return msignInRepo.getsignin(mobilenumber);
+    public LiveData<SignInMsg> logininverification(String number,String otp){
+        return msignInRepo.logininverification(number,otp);
     }
 
 

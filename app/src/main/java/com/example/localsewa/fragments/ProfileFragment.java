@@ -33,15 +33,19 @@ public class ProfileFragment extends Fragment {
         profileBinding.profiletoolbar.setTitle("");
         context.setSupportActionBar(profileBinding.profiletoolbar);
 
-        profileBinding.signin.setOnClickListener(view -> {
+        profileBinding.signinlayout.setOnClickListener(view -> {
             Intent intent = new Intent(getActivity(),SignIn.class);
             startActivity(intent);
         });
-        profileBinding.signup.setOnClickListener(view -> {
+
+        profileBinding.signuplayout.setOnClickListener(view -> {
             Intent intent = new Intent(getActivity(), SignUp.class);
             startActivity(intent);
         });
 
+        profileBinding.accountinfo.setVisibility(View.GONE);
+        profileBinding.addressinfo.setVisibility(View.GONE);
+        profileBinding.logoutlayout.setVisibility(View.GONE);
 
 
         return profileBinding.getRoot();

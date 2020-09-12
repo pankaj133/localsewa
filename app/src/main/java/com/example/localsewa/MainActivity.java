@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -33,18 +34,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-
-        getSupportFragmentManager().
+        //setup  first  default fragment for start
+         getSupportFragmentManager().
                 beginTransaction().replace(R.id.fragment_container_view_tag,
                 new LocalSewaFragment()).commit();
 
-     /*   ft.replace(R.id.fragment_container_view_tag,new LocalSewaFragment());
-        ft.commit();*/
-
-        tabbar();
-
-    }
-
+        // call setup tabbar method
+        tabbar(); }
     private void tabbar() {
 
         tabs = activityMainBinding.tablayout;
@@ -75,19 +71,12 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 4:
                         fragment = new ProfileFragment();
-                        break;
-                }
-
-
+                        break; }
                 FragmentManager fm = getSupportFragmentManager();
 
                 FragmentTransaction ft = fm.beginTransaction();
                 ft.replace(R.id.fragment_container_view_tag, fragment);
-                ft.commit();
-
-
-            }
-
+                ft.commit(); }
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
 
@@ -99,7 +88,5 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
     }
-
 }

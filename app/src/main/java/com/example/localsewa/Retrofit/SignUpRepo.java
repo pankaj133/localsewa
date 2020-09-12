@@ -5,7 +5,9 @@ import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.localsewa.models.account.SignUpMsg;
 import com.example.localsewa.models.account.SignUpResponce;
+import com.example.localsewa.models.account.SignUpVerifyResponce;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -19,9 +21,15 @@ public class SignUpRepo {
         this.context = context;
     }
 
+    //start of signup
     private MutableLiveData<String> singup  = new MutableLiveData<>();
-
     private String sucess;
+    //end of signup
+
+
+    private MutableLiveData<SignUpMsg> signUpMsgMutableLiveData = new MutableLiveData<>();
+
+    private SignUpMsg signUpMsg;
 
     public MutableLiveData<String> getsignup(String num,String fn,String dt){
         Comman.getApi().signup(num,fn,dt).enqueue(new Callback<SignUpResponce>() {
@@ -40,5 +48,32 @@ public class SignUpRepo {
             }
         });
         return singup;
+    }
+
+
+    public MutableLiveData<SignUpMsg> setSingupverification(String number, String otp){
+
+        Comman.getApi().signupverification(number,otp).enqueue(new Callback<SignUpVerifyResponce>() {
+            @Override
+            public void onResponse(Call<SignUpVerifyResponce> call, Response<SignUpVerifyResponce> response) {
+
+                if(!response.isSuccessful()){
+
+                    Toast.makeText(context, ""+response.message(), Toast.LENGTH_SHORT).show();
+                }
+                signUpMsg = response.body().getSignUpMsg();
+                signUpMsgMutableLiveData.setValue(signUpMsg);
+            }
+
+            @Override
+            public void onFailure(Call<SignUpVerifyResponce> call, Throwable t) {
+
+
+                Toast.makeText(context, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        return signUpMsgMutableLiveData;
+
     }
 }

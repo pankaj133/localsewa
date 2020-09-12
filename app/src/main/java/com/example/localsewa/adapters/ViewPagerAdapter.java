@@ -44,8 +44,6 @@ public class ViewPagerAdapter extends PagerAdapter {
         ViewPager viewPager = (ViewPager) container;
         viewPager.addView(viewPagerCustomLayoutBinding.getRoot(),0);
 
-       View view =  viewPagerCustomLayoutBinding.getRoot();
-
         return viewPagerCustomLayoutBinding.getRoot();
     }
 
